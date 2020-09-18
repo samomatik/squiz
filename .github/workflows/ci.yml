@@ -28,6 +28,7 @@ jobs:
         run: |
           python -m unittest discover tests/
   deployment:
+    needs: type_check
     needs: test_suite
     runs-on: ubuntu-latest
     steps:
