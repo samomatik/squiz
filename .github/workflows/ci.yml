@@ -35,5 +35,4 @@ jobs:
             rm -rf squiz
             git clone https://github.com/samomatik/squiz.git
             python3.8 -m venv /home/github-actions/squiz/venv
-            source /home/github-actions/squiz/venv/bin/activate
-            pip install -r /home/github-actions/squiz/requirements.txt
+            /home/github-actions/squiz/venv/pip3.8 install -r /home/github-actions/squiz/requirements.txt
