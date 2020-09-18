@@ -4,13 +4,6 @@ on:
     branches: [ master ]
     
 jobs:
-  type_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check types
-        uses: jpetrucciani/mypy-check@master
-        with:
-          path: '/home/github-actions/squiz/main.py'
   test_suite:
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +20,13 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover tests/
+  type_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check types
+        uses: jpetrucciani/mypy-check@master
+        with:
+          path: 'main.py'
   deployment:
     needs: [type_check, test_suite]
     runs-on: ubuntu-latest
