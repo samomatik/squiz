@@ -4,6 +4,11 @@ on:
     branches: [ master ]
     
 jobs:
+  type_check:
+    runs-on: ubuntu-latest
+    steps:
+      - Check types
+        uses: jpetrucciani/mypy-check@master
   test_suite:
     runs-on: ubuntu-latest
     steps:
