@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Check types
         uses: jpetrucciani/mypy-check@master
+        with:
+          path: '/home/github-actions/squiz/'
   test_suite:
     runs-on: ubuntu-latest
     steps:
