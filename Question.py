@@ -6,7 +6,7 @@ class Question():
         self.answer: str = answer
 
         random.shuffle(options)
-        self.options: list = options
+        self.option: list = options
 
     def is_correct(self, answer: str) -> bool:
         return self.answer == answer
