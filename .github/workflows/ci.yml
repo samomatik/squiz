@@ -29,7 +29,7 @@ jobs:
         with:
           host: 54.157.23.32
           username: github-actions
-          key: ${{ SSH_KEY }}
+          key: ${{ ssh_key }}
           port: 22
           script: |
             rm -rf squiz
