@@ -28,8 +28,7 @@ jobs:
         run: |
           python -m unittest discover tests/
   deployment:
-    needs: type_check
-    needs: test_suite
+    needs: [type_check, test_suite]
     runs-on: ubuntu-latest
     steps:
       - name: Fresh clone & repo install
