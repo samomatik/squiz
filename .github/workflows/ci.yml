@@ -32,6 +32,7 @@ jobs:
           pip install mypy
       - name: Run Mypy
         run: |
+          pwd
           mypy main.py Question.py Quiz.py
   deployment:
     needs: [type_check, test_suite]
