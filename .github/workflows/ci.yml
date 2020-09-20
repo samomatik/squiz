@@ -23,6 +23,9 @@ jobs:
       - name: Run mypy
         run: |
           mypy main.py
+      - name: Run flake8
+        run: |
+          flake8 main.py
   deployment:
     needs: [test_suite]
     runs-on: ubuntu-latest

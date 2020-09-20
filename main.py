@@ -1,5 +1,5 @@
 from termcolor import cprint
-import inquirer # type: ignore
+import inquirer  # type: ignore
 from Quiz import Quiz
 
 quiz = Quiz()
@@ -19,18 +19,20 @@ questions = [
 
 category_name = inquirer.prompt(questions)["category"]
 
-cprint(f"Awesome you have selected {category_name} as your category!", main_color)
+cprint(f"Awesome you have selected {category_name} as your category!",
+       main_color)
 cprint("Please wait while we build your quiz....", main_color)
 
 raw_questions = Quiz.get_questions(categories[category_name])
 
 if len(raw_questions) == 0:
-    cprint("Sorry but we couldn't find any questions to build your quiz", main_color)
+    cprint("Sorry but we couldn't find any questions to build your quiz",
+           main_color)
     exit()
 
 quiz.add_raw_questions(raw_questions)
 
-for quiz_question in quiz.questions:    
+for quiz_question in quiz.questions:
     question = [
         inquirer.List(
                 "answer",
@@ -38,7 +40,7 @@ for quiz_question in quiz.questions:
                 choices=quiz_question.options,
             )
         ]
-    
+
     answer = inquirer.prompt(question)["answer"]
 
     if quiz_question.is_correct(answer):
