@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Check types
         uses: jpetrucciani/mypy-check@master
+        with:
+          path: '.'
   deployment:
     needs: [type_check, test_suite]
     runs-on: ubuntu-latest
