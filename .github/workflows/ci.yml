@@ -24,7 +24,7 @@ jobs:
         run: |
           mypy main.py
   deployment:
-    needs: [type_check, test_suite]
+    needs: [test_suite]
     runs-on: ubuntu-latest
     steps:
       - name: Fresh clone & repo install
