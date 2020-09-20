@@ -23,10 +23,16 @@ jobs:
   type_check:
     runs-on: ubuntu-latest
     steps:
-      - name: Check types
-        uses: jpetrucciani/mypy-check@master
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
         with:
-          path: '~/environment/squiz/'
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          pip install mypy
+      - name: Run Mypy
+        run: |
+          mypy *.py
   deployment:
     needs: [type_check, test_suite]
     runs-on: ubuntu-latest
