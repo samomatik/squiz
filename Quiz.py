@@ -8,7 +8,7 @@ class Quiz():
     def get_categories(cls) -> dict:
         with open("quiz_categories.json","r") as readable_file:
             raw_content = readable_file.readline()
-            return json.loads(raw_content)
+            return dict(json.loads(raw_content))
     
     @classmethod
     def get_questions(cls, category: str, amount: int = 10) -> list:
@@ -17,7 +17,7 @@ class Quiz():
             response = requests.get(f"{api_url}?type=multiple&amount={amount}&category={category}")
             content = json.loads(response.text)
             cls.decode_questions(content["results"])
-            return content["results"]
+            return list(content["results"])
         except Exception:
             return []
     
