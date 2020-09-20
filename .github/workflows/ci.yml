@@ -20,19 +20,9 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover tests/
-  type_check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: Install dependencies
+      - name: Run mypy
         run: |
-          pip install mypy
-      - name: Run Mypy
-        run: |
-          ls
+          mypy main.py
   deployment:
     needs: [type_check, test_suite]
     runs-on: ubuntu-latest
