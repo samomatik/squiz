@@ -26,7 +26,7 @@ jobs:
       - name: Check types
         uses: jpetrucciani/mypy-check@master
         with:
-          path: '.'
+          path: '~/environment/squiz/'
   deployment:
     needs: [type_check, test_suite]
     runs-on: ubuntu-latest
