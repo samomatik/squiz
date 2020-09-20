@@ -5,10 +5,10 @@ from Question import Question
 
 class Quiz():    
     @classmethod
-    def get_categories(cls) -> dict:
+    def get_categories(cls):
         with open("quiz_categories.json","r") as readable_file:
             raw_content = readable_file.readline()
-            return dict(json.loads(raw_content))
+            return json.loads(raw_content)
     
     @classmethod
     def get_questions(cls, category: str, amount: int = 10) -> list:
