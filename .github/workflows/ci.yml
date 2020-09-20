@@ -32,7 +32,7 @@ jobs:
           pip install mypy
       - name: Run Mypy
         run: |
-          mypy ../
+          ls
   deployment:
     needs: [type_check, test_suite]
     runs-on: ubuntu-latest
